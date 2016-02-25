@@ -7,8 +7,10 @@ try:
          for name in files:
              try:
                  tagnumber = name.split('-')[6] 
-                 tagnumber = (int(tagnumber))
-                 newname='{:03d}-{:s}'.format(tagnumber,name)
+                 stuff_to_end = name.split('-')[6:] 
+                 concat_stuff_to_end = ''.join(stuff_to_end) + ','
+                 guest = concat_stuff_to_end.split('.')[0] 
+                 newname='{:s}-{:s}'.format(guest,name)
                  print newname
                  os.rename(name, newname)
              except:
